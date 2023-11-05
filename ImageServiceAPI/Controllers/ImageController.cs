@@ -22,31 +22,15 @@ public class ImageController : ControllerBase
 
 
     [HttpGet]
-    public async Task<ImageDTO?> GetData(int id)
-    {
-        ImageDTO? result = await _imageRepository.ReadImage(id);
-        return result;
-    }
+    public async Task<ImageDTO?> GetData(int id) => await _imageRepository.ReadImage(id);
 
     [HttpPost]
-    public async Task<int?> PostData(string imagePath)
-    {
-        int? result = await _imageRepository.CreateImage(new ImageDTO(imagePath));
-        return result;
-    }
-
+    public async Task<int?> PostData(string imagePath) => await _imageRepository.CreateImage(new ImageDTO(imagePath));
+   
     [HttpPut]
-    public async Task<ImageDTO?> PutData(int id, string imagePath)
-    {
-        ImageDTO? result = await _imageRepository.UpdateImage(new ImageDTO(id, imagePath));
-        return result;
-    }
+    public async Task<ImageDTO?> PutData(int id, string imagePath) => await _imageRepository.UpdateImage(new ImageDTO(id, imagePath));
 
     [HttpDelete]
-    public async Task<bool?> DeleteData(int imageId)
-    {
-        bool? result = await _imageRepository.DeleteImage(imageId);
-        return result;
-    }
+    public async Task<bool?> DeleteData(int imageId) => await _imageRepository.DeleteImage(imageId);
 
 }
