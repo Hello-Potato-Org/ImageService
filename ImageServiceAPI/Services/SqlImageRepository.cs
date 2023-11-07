@@ -9,7 +9,7 @@ namespace ImageServiceAPI.Services
 {
     public class SqlImageRepository : IImageRepository
     {
-        private readonly string? _dbConnection = new DbConnection().connectionString;
+        private readonly string? _dbConnection = Environment.GetEnvironmentVariable("connectionstring");
         private readonly ILogger<ImageController> _logger;
 
         public SqlImageRepository(ILogger<ImageController> logger)
